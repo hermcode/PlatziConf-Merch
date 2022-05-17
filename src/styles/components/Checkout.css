@@ -5,6 +5,9 @@
   display: grid;
   padding: 0 0 4em 0;
 }
+.Checkout-content--title {
+  margin-bottom: 30px;
+}
 .Checkout-item {
   display: flex;
   justify-content: space-between;
@@ -20,6 +23,9 @@
   background-color: transparent;
   border: none;
   outline: none;
+}
+.Checkout-item button:hover {
+  cursor: pointer;
 }
 .Checkout-element {
   display: flex;
