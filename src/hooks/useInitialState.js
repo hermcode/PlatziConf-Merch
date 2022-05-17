@@ -30,11 +30,19 @@ const useInitialState = () => {
     })
   }
 
+  const emptyCart = () => {
+    setState({
+      ...state,
+      cart: []
+    })
+  }
+
   return {
     state,
     addToCart,
     removeFromCart,
-    addToBuyer
+    addToBuyer,
+    emptyCart
   }
 
 }

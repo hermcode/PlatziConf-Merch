@@ -6,7 +6,7 @@ import AppContext from '../context/AppContext';
 
 const Checkout = () => {
 
-  const { state: { cart }, removeFromCart } = useContext(AppContext)
+  const { state: { cart }, removeFromCart, emptyCart} = useContext(AppContext)
 
   const handleRemoveFromCart = (product, index) => {
     removeFromCart(product, index)
@@ -16,6 +16,10 @@ const Checkout = () => {
     const reducer = (acc, curr) => acc + curr.price
     const sum = cart.reduce(reducer, 0)
     return sum
+  }
+
+  const handleEmptyCart = () => {
+    emptyCart()
   }
 
   return (
@@ -34,8 +38,12 @@ const Checkout = () => {
                 </button>
               </div>
             ))
+            
           : <FaRegSadTear size='50px' />
         }
+
+        { cart.length > 0 && <button onClick={ handleEmptyCart } className='Checkout-button__empty-car'>Vaciar Carrito</button>}
+        
       </div>
 
       { cart.length > 0 && (
