@@ -42,7 +42,7 @@ const Checkout = () => {
           : <FaRegSadTear size='50px' />
         }
 
-        { cart.length > 0 && <button onClick={ handleEmptyCart } className='Checkout-button__empty-car'>Vaciar Carrito</button>}
+        { cart.length > 0 && <button onClick={ handleEmptyCart } className='Checkout-button__empty-cart'>Vaciar Carrito</button>}
         
       </div>
 

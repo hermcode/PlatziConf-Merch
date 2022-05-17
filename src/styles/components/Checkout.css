@@ -38,7 +38,7 @@
   margin: 0;
 }
 
-.Checkout-sidebar button, .Checkout-button__empty-car {
+.Checkout-sidebar button, .Checkout-button__empty-cart {
   box-shadow: inset 0px 1px 0px 0px #bee2f9;
   background: linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
   background-color: #63b8ee;
@@ -61,7 +61,7 @@
   width: 100%;
 }
 
-.Checkout-button__empty-car {
+.Checkout-button__empty-cart {
   margin-top: 20px;
 }
 
