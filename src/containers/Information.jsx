@@ -1,21 +1,35 @@
-import React, { useRef, useContext }from 'react'
+import React, { useRef, useContext, useState, useEffect }from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 import '../styles/components/Information.css';
+import totalSum from '../utils/totalSum';
 
 const Information = () => { 
 
   const navigate = useNavigate()
 
   const { state: {cart}, addToBuyer } = useContext(AppContext)
+  const [ emptyInputs, setEmptyInputs ] = useState(false)
   const form = useRef(null)
 
   const handleSubmit = () => {
     const formData = new FormData(form.current);
     const buyer = Object.fromEntries(formData);
+    
+    if(Object.values(buyer).includes('')) {
+      setEmptyInputs(true)
+      return
+    }
+    
     addToBuyer(buyer)
     navigate('/checkout/payment')
   }
+
+  useEffect(() => {
+    if(cart.length === 0) {
+      navigate('/checkout')
+    }
+  }, [cart])
   
   return (
     <div className="Information">
@@ -34,7 +48,7 @@ const Information = () => {
               <input type="text" placeholder="Correo electrónico" name="email" id="email" />
             </label>
             <label htmlFor="address">
-              Dirección:
+              Calle:
               <input
                 type="text"
                 placeholder="Dirección"
@@ -72,6 +86,7 @@ const Information = () => {
               <input type="text" placeholder="Teléfono" name="phone" id="phone" />
             </label>
           </form>
+          { emptyInputs && <p className='Form-error'>Todos los campos son obligatorios</p>}
         </div>
         <div className="Information-buttons">
           <Link to='/checkout'>
@@ -97,6 +112,7 @@ const Information = () => {
             )
           )
         }
+        <h3>{`Total: $${totalSum(cart)}`}</h3>
       </div>
     </div>
   );

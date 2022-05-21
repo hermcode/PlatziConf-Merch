@@ -90,3 +90,8 @@ input {
     display: block;
     outline: none;
 }
+.Form-error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}

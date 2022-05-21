@@ -32,3 +32,8 @@
 .Payment-element h4 {
   margin: 0;
 }
+
+.Payment-total {
+  font-size: 24px;
+  font-weight: bold;
+}
