@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DotenvWebpackPlugin = require('dotenv-webpack')
+// const DotenvWebpackPlugin = require('dotenv-webpack')
+const webpack = require('webpack');
+require('dotenv').config();
 
 module.exports = {
   entry: './src/index.jsx',
@@ -42,7 +44,11 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html',
     }),
-    new DotenvWebpackPlugin(),
+    // new DotenvWebpackPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.PAYPAL_CLIENT_ID': JSON.stringify(process.env.PAYPAL_CLIENT_ID),
+      'process.env.POSITIONTRACK_API_KEY': JSON.stringify(process.env.POSITIONTRACK_API_KEY),
+		}),
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),
