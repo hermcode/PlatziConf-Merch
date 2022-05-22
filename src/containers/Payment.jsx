@@ -13,7 +13,7 @@ const Payment = () => {
   const { state: { cart }, state: { buyer }, addToOrders } = useContext(AppContext)
 
   const initialOptions = {
-    "client-id": process.env.PAYPAL_CLIENT_ID,
+    "client-id": 'AU1WMXzXfU7EepXxj0y9F8b5suphj0LkwyFyURqS8_w4fzXpGADhSwR0nBwrtDXB1K7IeBsQCsvcKOrt',
     currency: "USD",
   }
 
