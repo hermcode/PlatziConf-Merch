@@ -7,7 +7,7 @@ const useMapAddress = (address, setIsLoading) => {
   const [ coordinates, setCoordinates ] = useState({})
 
   const API = 'http://api.positionstack.com/v1/forward'
-  const apiKey = `?access_key=${process.env.POSITIONTRACK_API_KEY}`
+  const apiKey = `?access_key=19a9f027c2e07aba1c6e03d1dd4bc276`
   const query = `&query=${encodeURI(address)}`
   const url = API + apiKey + query
 
