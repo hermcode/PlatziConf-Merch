@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const DotenvWebpackPlugin = require('dotenv-webpack')
 const webpack = require('webpack');
 require('dotenv').config({path: './.env'});
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -49,6 +50,13 @@ module.exports = {
       'process.env.PAYPAL_CLIENT_ID': JSON.stringify(process.env.PAYPAL_CLIENT_ID),
       'process.env.POSITIONTRACK_API_KEY': JSON.stringify(process.env.POSITIONTRACK_API_KEY),
 		}),
+    new CopyPlugin({
+      patterns: [
+        { from: 'public/manifest.json', to: '' },
+        { from: 'public/service-worker.js', to: '' },
+        { from: 'public/icon.png', to: 'assets' },
+      ],
+    }),
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),
